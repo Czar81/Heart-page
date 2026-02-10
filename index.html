@@ -4,32 +4,164 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ILY</title>
-
     <style>
-      html,
-      body {
-        width: 100%;
-        height: 100%;
+      * {
         margin: 0;
-        overflow: hidden;
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      iframe {
-        width: 100vw;
-        height: 100vh;
-        border: 0;
-        display: block;
+      html {
+        font-size: 16px;
+      }
+
+      body {
+        background-color: #0a0a0a;
+        color: white;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+
+      main {
+        background: #25386a;
+        padding: 2rem;
+        border-radius: 15px;
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      }
+
+      p {
+        font-size: clamp(1rem, 4vw, 1.125rem);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        color: #e0e0e0;
+        word-break: break-word;
+      }
+
+      a {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        background-color: #6b86cb;
+        font-size: clamp(0.9rem, 3vw, 1rem);
+        cursor: pointer;
+        border: none;
+        white-space: nowrap;
+      }
+
+      a:hover {
+        transform: translateY(-2px);
+        background-color: #4f74d0;
+        box-shadow: 0 4px 15px rgba(1, 45, 14, 0.4);
+      }
+
+      a:active {
+        transform: translateY(0);
+      }
+
+      video {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-top: 1.5rem;
+        background-color: #000;
+      }
+      small{
+        font-style: italic;
+      }
+      @media (max-width: 768px) {
+        body {
+          padding: 0.75rem;
+        }
+
+        main {
+          padding: 1.5rem;
+          border-radius: 12px;
+        }
+
+        p {
+          margin-bottom: 1.25rem;
+        }
+
+        a {
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        html {
+          font-size: 14px;
+        }
+
+        body {
+          padding: 0.5rem;
+        }
+
+        main {
+          padding: 1.25rem;
+          border-radius: 10px;
+        }
+
+        p {
+          margin-bottom: 1rem;
+          line-height: 1.5;
+        }
+
+        a {
+          margin-bottom: 1.25rem;
+          margin-top: 0.75rem;
+        }
+
+        video {
+          margin-top: 1rem;
+        }
+      }
+
+      @media (max-height: 600px) {
+        body {
+          min-height: auto;
+          padding: 1rem;
+        }
+
+        main {
+          padding: 1.5rem;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="overlay">
-      <iframe
-        src="https://www.geogebra.org/m/egah54zd"
-        allowfullscreen
-        allow="clipboard-read; clipboard-write"
+    <main>
+      <p>Abrir este link y darle al boton play en deplazador</p>
+      <a
+        id="geogebraLink"
+        href="https://www.geogebra.org/graphing/egah54zd"
+        target="_blank"
+        >Abrir Geogebra</a
       >
-      </iframe>
-    </div>
+      <video id="videoPlayer" src="./video_2026-02-09_18-50-03.mp4"></video>
+      <small>El video funcionara cuando se habra el link</small>
+    </main>
+
+    <script>
+      const geogebraLink = document.getElementById("geogebraLink");
+      const videoPlayer = document.getElementById("videoPlayer");
+
+      geogebraLink.addEventListener("click", function () {
+        videoPlayer.setAttribute("controls", "");
+      });
+    </script>
   </body>
 </html>
